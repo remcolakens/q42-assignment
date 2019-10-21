@@ -24,22 +24,21 @@
 import { TweenLite } from "gsap";
 
 export default {
-    name: "Assignment",
+    name: "Fibonacci",
 
     data() {
         return {
             grid: {
                 // You can adjust the grid and values here, they are also reactive which is awesome!
-                1:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                2:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                3:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                4:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                5:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                6:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                7:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                8:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                9:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
-                10: { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null, 10: null },
+                1:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                2:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                3:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                4:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                5:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                6:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                7:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                8:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
+                9:  { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null, 9: null },
             }
         };
     },
@@ -49,19 +48,18 @@ export default {
         checkFibonacci(cell, rowKey, cellKey) {
             // These are all the values we need for our calculations
             let cell1 = this.grid[rowKey][cellKey];
-            let cell2 = this.grid[rowKey][cellKey - 3];
-            // let cell3 = this.grid[rowKey][cellKey - 2];
-            let cell4 = this.grid[rowKey][cellKey - 2];
-            let cell5 = this.grid[rowKey][cellKey - 1];
-
+            let cell2 = this.grid[rowKey][cellKey - 1];
+            let cell3 = this.grid[rowKey][cellKey - 2];
+            let cell4 = this.grid[rowKey][cellKey - 3];
+            let cell5 = this.grid[rowKey][cellKey - 4];
 
             // We dont want to check empty values right?
-            if(cell1 && cell2 && cell4 && cell5) {
-                // THIRD cell equal to 1 +
-                let fibonacciSequence1 = cell4 === cell1 + cell2;
+            if(cell1 && cell2 && cell3 && cell4 && cell5) {
+                // THIRD cell equal to 1 + 2
+                let fibonacciSequence1 = cell3 === cell1 + cell2;
 
                 // FIFTH cell equal to 4 + 5
-                let fibonacciSequence2 = this.grid[rowKey][cellKey] === cell4 + cell5;
+                let fibonacciSequence2 = cell5 === cell3 + cell4;
 
                 // Do we have a match?
                 if(fibonacciSequence1 && fibonacciSequence2) {
@@ -74,7 +72,7 @@ export default {
                         this.addColor(element, "#03a810");
 
                         // Reset the value to null
-                        this.grid[1][1] = null;
+                        this.grid[rowKey][cellKey] = null;
 
                         // Lets go backwards
                         cellKey--;

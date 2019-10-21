@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Assignment />
+    <Fibonacci />
   </div>
 </template>
 
 <script>
-import Assignment from './components/Assignment.vue'
+import Fibonacci from './components/Fibonacci.vue'
 
 export default {
   name: 'app',
   components: {
-    Assignment
+      Fibonacci
   }
 }
 </script>

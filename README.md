@@ -23,3 +23,6 @@ yarn run serve
 ```
 yarn run build
 ```
+
+## Configuration
+The fibonacci range is configured to work `backwards` so for example: `5, 3, 2 ,1, 1` would light up green and reset to `null` for more configuration options please check `Fibonnaci.vue`

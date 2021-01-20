@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "sanitize.css": "^8.0.0",
     "vue": "^2.6.6"
   },
